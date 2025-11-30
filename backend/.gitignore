@@ -1,0 +1,9 @@
+# local env files
+.env*.local
+.env
+# python
+**/__pycache__
+**/env
+python.exe
+
+**/venv
