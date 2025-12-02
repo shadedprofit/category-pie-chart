@@ -9,7 +9,7 @@
     "test": "vitest",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn build && npx lint-staged && yarn test"
+      "pre-commit": "yarn build && yarn lint-staged && yarn test"
     }
   },
   "dependencies": {
