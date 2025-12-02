@@ -1,2 +1,2 @@
 cd frontend
-yarn build && npx lint-staged && yarn test
+yarn build && npx lint-staged && yarn test:coverage
