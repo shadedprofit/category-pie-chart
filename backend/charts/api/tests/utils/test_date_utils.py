@@ -1,5 +1,8 @@
 from django.test import TestCase
-from ...utils.date import generate_random_date_string, is_valid_yyyymmdd
+from ...utils.date_utils import (
+    generate_random_date_string,
+    is_valid_yyyymmdd
+)
 
 
 class DateUtilsTest(TestCase):

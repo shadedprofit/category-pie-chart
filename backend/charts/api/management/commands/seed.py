@@ -1,11 +1,11 @@
 from django.core.management.base import BaseCommand
 from datetime import date
-from ...models.purchase import Purchase
-from ...utils.constants.commands import (
+from ...models.purchase_model import Purchase
+from ...constants.commands_constants import (
     MODE_CLEAR,
     MODE_REFRESH
 )
-from ...utils.date import generate_random_date_string
+from ...utils.date_utils import generate_random_date_string
 import random
 import logging
 
