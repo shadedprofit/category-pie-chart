@@ -21,6 +21,17 @@ export default defineConfig([
 		languageOptions: {
 			ecmaVersion: 2020,
 			globals: globals.browser
+		},
+		settings: {
+			"import/resolver": {
+				alias: {
+					map: [
+						["~", "./src"],
+						["lib", "./lib"]
+					],
+					extensions: [".js", ".jsx", ".ts", ".tsx"]
+				}
+			}
 		}
 	}
 ])
