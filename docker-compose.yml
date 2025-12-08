@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DJANGO_SETTINGS_MODULE=charts.settings
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - HOST=0.0.0.0 # Set the host environment variable for Vite
+      - VITE_BASE_API_URL=http://0.0.0.0:8000
+    command: yarn dev --host 0.0.0.0
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: charts_db
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
