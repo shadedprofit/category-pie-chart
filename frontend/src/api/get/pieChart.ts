@@ -7,10 +7,12 @@ export const getPieChart = async (
 ): Promise<PieChartAPIResponse> => {
 	const apiUrl = `${BASE_API_URL}/pie-chart?start_date=${start}&end_date=${end}`
 	const response = await fetch(apiUrl)
+	const jsonResponse = (response?.json() ??
+		{}) as unknown as PieChartAPIResponse
 
-	if (!response.ok) {
-		throw new Error("Something went wrong.")
+	if (!response || !response.ok) {
+		throw new Error(jsonResponse?.error ?? "Something went wrong.")
 	}
 
-	return response?.json() as unknown as PieChartAPIResponse
+	return jsonResponse
 }
