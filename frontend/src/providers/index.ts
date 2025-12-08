@@ -1,1 +1,1 @@
-export * from "./QCTestProvider"
+export * from "./queryClient"
