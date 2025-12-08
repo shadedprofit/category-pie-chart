@@ -13,7 +13,8 @@ RUN pip install poetry \
     && poetry config virtualenvs.create false --local \
     && pip install poetry-plugin-export
 
-# Copy and install dependencies using Poetry
+# Export poetry dependencies to requirements.txt file and activate
+# virtual environment
 COPY pyproject.toml poetry.lock ./app/backend/
 RUN cd ./app/backend/ \
     && poetry install --no-root --only main \
@@ -24,7 +25,7 @@ RUN cd ./app/backend/ \
 # Copy the rest of the application code
 COPY . /app/backend/
 
-# Run migrations and seed database
+# Install dependencies, run migrations, and seed database
 RUN cd ./app/backend/ \
     && pip install -r requirements.txt \
     && cd /app/backend/charts/ \
