@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "charts"
+name = "charts_api"
 version = "0.1.0"
-description = ""
+description = "An API server for the Category Pie Charts Demo App"
 authors = ["Edgar Pabon <edgar.pabon@gmail.com>"]
 readme = "README.md"
 
