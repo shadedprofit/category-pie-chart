@@ -13,7 +13,7 @@ function App() {
 	}
 	return (
 		<div
-			className="w-screen h-screen bg-gray-100 px-4 pb-4 md:p-8 flex flex-col items-center justify-center align-center font-sans font-arial font-helvetica overflow-scroll"
+			className="w-screen h-screen max-h-screen bg-gray-100 px-4 pb-4 md:pb-8 md:px-8 flex flex-col items-center justify-center align-center font-sans font-arial font-helvetica overflow-scroll"
 			data-testid="app-container"
 		>
 			{showError && (
