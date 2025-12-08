@@ -33,12 +33,5 @@
 			"lib/*": ["./lib/*"]
 		}
 	},
-	"include": ["./lib", "vitest.setup.ts", "rollup.config.mjs", "./src"],
-	"exclude": [
-		"**/*.stories.ts",
-		"**/*.stories.tsx",
-		"**/*.stories.js",
-		"**/*.stories.jsx",
-		"./storybook"
-	]
+	"include": ["./lib", "vitest.setup.ts", "rollup.config.mjs", "./src"]
 }
