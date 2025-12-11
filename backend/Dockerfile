@@ -9,28 +9,28 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app/backend
 
 # Install Poetry
-RUN pip install poetry \
-    && poetry config virtualenvs.create false --local \
-    && pip install poetry-plugin-export
+RUN pip install poetry && \
+    poetry config virtualenvs.create false --local && \
+    pip install poetry-plugin-export
 
 # Export poetry dependencies to requirements.txt file and activate
 # virtual environment
 COPY pyproject.toml poetry.lock ./app/backend/
-RUN cd ./app/backend/ \
-    && poetry install --no-root --only main \
-    && poetry export --format requirements.txt --output requirements.txt \
-    && poetry env activate \
-    && cd /
+RUN cd ./app/backend/ && \
+    poetry install --no-root --only main && \
+    poetry export --format requirements.txt --output requirements.txt && \
+    poetry env activate && \
+    cd /
 
 # Copy the rest of the application code
 COPY . /app/backend/
 
 # Install dependencies, run migrations, and seed database
-RUN cd ./app/backend/ \
-    && pip install -r requirements.txt \
-    && cd /app/backend/charts/ \
-    && python manage.py migrate \
-    && python manage.py seed
+RUN cd ./app/backend/ && \
+    pip install -r requirements.txt && \
+    cd /app/backend/charts/ && \
+    python manage.py migrate && \
+    python manage.py seed
 
 # Set Python path
 ENV PYTHONPATH=/app/backend/
