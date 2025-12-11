@@ -12,7 +12,7 @@ A demo app using the component has also been setup, which either can be run in a
 
 ## Running the Demo App in a Docker Container
 
-From the project root, run:
+First, make sure you have installed Docker and have started your local Docker Engine.  Then, from the project root, run:
 
 - `docker-compose up --build`
 
